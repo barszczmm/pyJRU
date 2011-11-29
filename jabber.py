@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import threading
+import csv
 
 import sleekxmpp
 from sleekxmpp.exceptions import IqError, IqTimeout
@@ -30,11 +31,13 @@ class RosterUtility(sleekxmpp.ClientXMPP):
         ret_str = ''
         for jid in self.client_roster:
             name = self.client_roster[jid]['name']
+            if name.find(',') != -1:
+                name = '"%s"' % name
             if not name:
                 name = ''
             sub = self.client_roster[jid]['subscription']
-            groups = ','.join(self.client_roster[jid]['groups'])
-            ret_str += "+,%s,%s,%s,%s\n" % (jid, name, sub, groups)
+            groups = ','.join(map(lambda x: x if x.find(',') == -1 else '"'+x+'"', self.client_roster[jid]['groups']))
+            ret_str += '+,%s,%s,%s,%s\n' % (jid, name, sub, groups)
         return ret_str
 
     def start(self, event):
@@ -58,9 +61,9 @@ class RosterUtility(sleekxmpp.ClientXMPP):
             print('Error: Request timed out')
 
         if self.roster_csv is not None:
-            for line in self.roster_csv.split('\n'):
-                if line:
-                    jid = line.split(',')
+            csv_reader = csv.reader(self.roster_csv.split('\n'))
+            for jid in csv_reader:
+                if len(jid):
                     if jid[0] == '+':
                         groups = []
                         for i in range(4, len(jid)):
@@ -148,7 +151,11 @@ if __name__ == '__main__':
     if not opts.host:
         opts.host = tools.get_host_from_email(jid)
 
-    xmpp = RosterUtility(jid, password)
+    roster_csv = None
+    if not sys.stdin.isatty():
+        roster_csv = sys.stdin.read()
+
+    xmpp = RosterUtility(jid, password, roster_csv)
 
     # If you are working with an OpenFire server, you may need
     # to adjust the SSL version used:
@@ -167,7 +174,8 @@ if __name__ == '__main__':
         # if xmpp.connect(('talk.google.com', 5222)):
         #     ...
         xmpp.process(threaded=False)
-        print xmpp.get_client_roster_as_csv()
+        if not roster_csv:
+            print xmpp.get_client_roster_as_csv()
     else:
         print("Unable to connect.")
 
