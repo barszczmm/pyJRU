@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------------------------------------*/
+/* c) 2011 Maciej 'barszcz' Marczewski | www.barszcz.info | maciej@marczewski.net.pl */
+/*-----------------------------------------------------------------------------------*/
+
+/* ============ reset ========================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+button, fieldset, form, input, label, legend, option, select, textarea {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	background-color: transparent;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, dialog,
+footer, header, hgroup, menu, nav, section, canvas, summary {
+	display: block;
+}
+
+:active, :focus, :hover { outline: 0; }
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse: collapse; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+table, td, th { vertical-align: middle; }
+
+ul, ol { list-style: none; }
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
+blockquote, q { quotes: none; }
+
+textarea { overflow: auto; }
+
+/* Remove annoying border on linked images. */
+a img { border: none; }
+
+a { outline: none; }
+
+/* Remove button padding in FF */
+input::-moz-focus-inner { border: 0; padding: 0; }
+
+/* Remove shadow from focused inputs in Webkit */
+input:focus { outline: none; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+del { text-decoration: line-through; }
+
+body {
+	font-size: 100.1%;
+	line-height: 1.5;
+}
+
+/* ============================================================ */
+
+body { font-family: "Trebuchet MS", "Nimbus Sans L", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; font-size: 14px; color: #666; background: #fff; }
+input[type=text], input[type=password], textarea { font-family: "Lucida Console", Monaco, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", monospace; font-size: 12px; color: #666; background: #fff; }
+
+a { color: #666; }
+a:hover { color: #000; }
+
+.fl { float: left; }
+.fr { float: right; }
+.fn { float: none; }
+.clear { clear: both; }
+.hide { display: none; }
+
+form { width: 870px; margin: 0 auto 50px; position: relative; }
+fieldset { border: 0; }
+fieldset fieldset { border-top: 1px dashed #ddd; margin-top: 10px;}
+#header { padding: 20px 0 30px; width: 870px; margin: 0 auto; }
+#header h1 { font-size: 24px; font-weight: bold; }
+#header h1 a { text-decoration: none; }
+fieldset.connection { width: 350px; margin-right: 20px; float: left; }
+fieldset.advanced { padding-bottom: 10px; }
+fieldset.buttons { padding-top: 50px; }
+legend { font-weight: bold; }
+fieldset fieldset legend { color: #aaa; padding-right: 0.5em; }
+label { display: block; margin-bottom: 0.2em; padding-left: 10px; }
+label .text { display: inline-block; width: 150px; }
+input[type=text], input[type=password], textarea { border: 1px solid #bbb; display: inline-block; padding: 2px 4px; width: 170px; }
+textarea { width: 490px; height: 400px; }
+input[type=text]:focus, input[type=password]:focus, textarea:focus { border-color: #333; color: #000; background: #eee; }
+input[type=submit] { display: inline-block; background: #666; color: #fff; cursor: pointer; font-weight: bold; width: 170px; padding: 2px 0; }
+input[type=submit]:first-child { margin-right: 10px; }
+input[type=submit]:hover { background: #333; }
+input[type=submit]:focus { color: #ddd; }
+
+.errors { color: red; border: 1px dashed red; padding: 5px 10px; margin: 10px 0 0; font-weight: bold; }
+
+.help { border: 1px solid #ddd; font-size: 12px; color: #999; margin: 0 10px 10px; padding: 8px 10px; position: relative; top: -10px; }
+.help-icon { cursor: help; border: 1px solid #999; text-align: center; line-height: 1.1em; width: 14px; height: 14px; display: inline-block; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; background: #fff; position: relative; z-index: 99; }
+
+.form-overlay { position: absolute; bottom: -15px; left: -15px; width: 100%; height: 100%; padding: 15px; background: #000; z-index: 999; color: #fff; font-weight: bold; }
+.form-overlay .text { position: absolute; left: 48%; top: 49%; }
+
+#footer { font-size: 12px; width: 870px; margin: 0 auto 10px; }

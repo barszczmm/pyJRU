@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Python Jabber Roster Utility</title>
+		<link href="/static/css/main.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="header">
+			<h1><a href="/">Python Jabber Roster Utility</a></h1>
+			<p>This is <a href="http://python.org/">Python</a> version of <a href="http://beta.unclassified.de/projekte/jru-php/">Jabber Roster Utility</a> with some more features like specifying connection host and port, finding host from domain's SRV records and more. It is written using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> library.
+			<br />With this tool, you can manage your <a href="http://www.jabber.org/">Jabber</a> roster: add, remove and alter items in a large scale.</p>
+		</div>
+
+		<form action="roster" method="post">
+
+			<fieldset class="connection">
+				<legend>Connection settings</legend>
+
+				<fieldset class="basic">
+					<legend>Mandatory fields</legend>
+					<label><span class="text">JID (user@server)</span><input type="text" name="jid" /></label>
+					<label><span class="text">Password</span><input type="password" name="password" /></label>
+				</fieldset>
+				<fieldset class="advanced">
+					<legend>Optional fields</legend>
+					<div class="help">
+						<p>If Jabber server address is different than domain in your JID (user@server) you can specify correct address here (for instance for Google Talk you should put talk.google.com here).
+						<br />You can also specify port if your server does not use default one (5222).</p>
+					</div>
+					<label><span class="text">Host</span><input type="text" name="host" /></label>
+					<label><span class="text">Port</span><input type="text" name="port" /></label>
+				</fieldset>
+				<fieldset class="buttons">
+					<input type="submit" name="retrieve" value="Get roster" /><input type="submit" name="update" value="Update roster" />
+				</fieldset>
+
+			</fieldset>
+
+			<fieldset class="result">
+				<legend>Roster content</legend>
+				<div class="help">
+					<p>These are the columns: action, JID, name, subscription (none, to, from, both), group1, group2, ..., groupN. They are comma-separated and if they contain commas theirselves, they are additionally double-quoted.</p>
+					<p>To make changes to your roster, modify content below and use the <strong>Update roster</strong> button.
+					<br />You can <strong>add</strong> or <strong>modify</strong> contacts by putting a <strong>+</strong> sign in the first column. To <strong>remove</strong> a contact, put a <strong>-</strong> there.</p>
+				</div>
+				<textarea name="roster"></textarea>
+			</fieldset>
+
+		</form>
+
+		<p id="footer">pyJRU 0.1, &copy; 2011 by <a href="http://www.barszcz.info/">Maciej 'barszcz' Marczewski</a>, <a href="">project homepage</a>, released under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.</p>
+
+		<script src="/static/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+		<script src="/static/js/main.js" type="text/javascript"></script>
+	</body>
+</html>
