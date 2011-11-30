@@ -13,10 +13,11 @@ import tools
 
 
 def index(environ, start_response):
-    start_response('200 OK', [('Content-Type', 'text/html')])
     #template = Template(open('templates/index.html').read())
     #return [template.substitute(dict(content='Hello World Application'))]
-    return [open('templates/index.html').read()]
+    templates_path = environ.get('TEMPLATES_PATH', 'templates')
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    return [open(templates_path + '/index.html').read()]
 
 
 def roster(environ, start_response):
@@ -110,9 +111,7 @@ urls = [
 def application(environ, start_response):
     """
     The main WSGI application. Dispatch the current request to
-    the functions from above and store the regular expression
-    captures in the WSGI environment as  `myapp.url_args` so that
-    the functions from above can access the url placeholders.
+    the functions from above.
 
     If nothing matches call the `not_found` function.
     """
@@ -125,7 +124,7 @@ def application(environ, start_response):
 
 
 if __name__ == '__main__':
-    
+
     from optparse import OptionParser
     from wsgiref.simple_server import make_server
 
@@ -135,7 +134,7 @@ if __name__ == '__main__':
     optp.add_option("-H", "--host", dest="host", default="127.0.0.1",
                     help="host name or IP to use (default: 127.0.0.1)")
     opts,args = optp.parse_args()
-    
+
     srv = make_server(opts.host, opts.port, application)
     print "Server started, use Ctrc+C to stop server"
     print "You can now visit: http://%s:%d/" % (opts.host, opts.port)
