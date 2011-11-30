@@ -11,12 +11,12 @@ server {
 
         # Static files location
         location /static {
-                root     /home/barszcz/www/pyjru/pyJRU;
+                root     /home/barszcz/www/pyjru/pyJRU/pyjru;
                 expires  30d;
         }
         location / {
                 uwsgi_pass pyjru;
                 include uwsgi_params;
-                uwsgi_param TEMPLATES_PATH /home/barszcz/www/pyjru/pyJRU/templates;
+                uwsgi_param TEMPLATES_PATH /home/barszcz/www/pyjru/pyJRU/pyjru/templates;
         }
 }

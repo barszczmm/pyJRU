@@ -1,7 +1,7 @@
 <uwsgi>
 	<socket>127.0.0.1:4000</socket>
 	<home>/home/barszcz/www/pyjru/pyjru_venv</home>
-	<pythonpath>/home/barszcz/www/pyjru/pyJRU</pythonpath>
+	<pythonpath>/home/barszcz/www/pyjru/pyJRU/pyjru</pythonpath>
 	<module>server</module>
-	<env>TEMPLATES_PATH=aaatemplates</env>
+	<env>TEMPLATES_PATH=/home/barszcz/www/pyjru/pyJRU/pyjru/templates</env>
 </uwsgi>
