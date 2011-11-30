@@ -109,7 +109,7 @@ input[type=submit]:focus { color: #ddd; }
 .errors { color: red; border: 1px dashed red; padding: 5px 10px; margin: 10px 0 0; font-weight: bold; }
 
 .help { border: 1px solid #ddd; font-size: 12px; color: #999; margin: 0 10px 10px; padding: 8px 10px; position: relative; top: -10px; }
-.help-icon { cursor: help; border: 1px solid #999; text-align: center; line-height: 1.1em; width: 14px; height: 14px; display: block; background: #fff; position: relative; z-index: 99; }
+.help-icon { cursor: help; border: 1px solid #999; text-align: center; line-height: 1.1em; width: 14px; height: 14px; display: inline-block; background: #fff; position: relative; z-index: 99; }
 
 .form-overlay { position: absolute; bottom: -15px; left: -15px; width: 100%; height: 100%; padding: 15px; background: #000; z-index: 999; color: #fff; font-weight: bold; }
 .form-overlay .text { position: absolute; left: 48%; top: 49%; }
