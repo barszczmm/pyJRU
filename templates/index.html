@@ -7,8 +7,11 @@
 	<body>
 		<div id="header">
 			<h1><a href="/">Python Jabber Roster Utility</a></h1>
-			<p>This is <a href="http://python.org/">Python</a> version of <a href="http://beta.unclassified.de/projekte/jru-php/">Jabber Roster Utility</a> with some more features like specifying connection host and port, finding host from domain's SRV records and more. It is written using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> library.
+			<p>This is <a href="http://python.org/">Python</a> version of <a href="http://beta.unclassified.de/projekte/jru-php/">Jabber Roster Utility</a> with some additional features like specifying connection host and port, ability to find host from domain's SRV records, using AJAX requests and more. It is written using <a href="https://github.com/fritzy/SleekXMPP">SleekXMPP</a> library.
 			<br />With this tool, you can manage your <a href="http://www.jabber.org/">Jabber</a> roster: add, remove and alter items in a large scale.</p>
+			<div class="caution">
+				<p><strong>CAUTION:</strong> I wrote this app just to transfer my roster from standard Jabber server to Google Talk. It was only tested on one <a href="http://www.ejabberd.im/">ejabberd</a> based server and on Google Talk (in gmail.com domain and in my domain registered in Google Apps) and <strong>it works for me&trade;</strong> but <strong>I give no guaranty</strong> that it will work for you and <strong>I take no responsibility for any data loss</strong> or other problems. <strong>You are using this software at your own risk.</strong></p>
+			</div>
 		</div>
 
 		<form action="roster" method="post">
@@ -48,7 +51,7 @@
 
 		</form>
 
-		<p id="footer">pyJRU 0.1, &copy; 2011 by <a href="http://www.barszcz.info/">Maciej 'barszcz' Marczewski</a>, <a href="">project homepage</a>, released under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.</p>
+		<p id="footer">pyJRU ${version}, &copy; 2011 by <a href="http://www.barszcz.info/">Maciej 'barszcz' Marczewski</a>, <a href="http://tech.barszcz.info/projects/python-jabber-roster-utility/">project homepage</a>, released under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.</p>
 
 		<script src="/static/js/jquery-1.7.1.min.js" type="text/javascript"></script>
 		<script src="/static/js/main.js" type="text/javascript"></script>
