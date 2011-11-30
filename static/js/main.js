@@ -1,5 +1,39 @@
-$(document).ready(function() {
+function helpContainers() {
+	$('.help').hide().before('<div class="help-icon">?</div>');
+	$('.help-icon').click(
+		function() {
+			var $help = $(this).next('.help');
+			if ($help.is(':visible')) {
+				$help.slideUp();
+			} else {
+				$help.slideDown();
+			}
+				
+		}
+	);
+}
 
+function cautionContainers() {
+	$('.caution').show().before('<div class="caution-icon">!</div>');
+	$('.caution-icon').click(
+		function() {
+			var $caution = $(this).next('.caution');
+			if ($caution.is(':visible')) {
+				$caution.animate({height: 'hide'});
+			} else {
+				$caution.animate({height: 'show'});
+			}
+				
+		}
+	);
+}
+
+function helpAndCaution() {
+	helpContainers()
+	cautionContainers();
+}
+
+function formHandler() {
 	$('form input[type="submit"]').click(
 		function() {
 			var $form = $(this).parents('form'),
@@ -38,17 +72,12 @@ $(document).ready(function() {
 			return false;
 		}
 	);
+}
 
-	$('.help').hide().before('<div class="help-icon">?</div>');
-	$('.help-icon').click(
-		function() {
-			var $help = $(this).next('.help');
-			if ($help.is(':visible')) {
-				$help.animate({height: 'hide', marginBottom: 0});
-			} else {
-				$help.animate({height: 'show', marginBottom: 10});
-			}
-				
-		}
-	);
+$(document).ready(function() {
+	
+	helpAndCaution();
+
+	formHandler();
+
 });
