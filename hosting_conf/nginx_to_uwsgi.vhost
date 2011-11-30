@@ -1,0 +1,22 @@
+upstream pyjru {
+        server 127.0.0.1:4000;
+}
+
+server {
+        listen 80;
+        server_name pyjru.barszcz.info;
+
+        access_log  /var/log/nginx/pyjru.barszcz.info.access.log;
+        error_log   /var/log/nginx/pyjru.barszcz.info.error.log;
+
+        # Static files location
+        location /static {
+                root     /home/barszcz/www/pyjru/pyJRU;
+                expires  30d;
+        }
+        location / {
+                uwsgi_pass pyjru;
+                include uwsgi_params;
+                uwsgi_param TEMPLATES_PATH /home/barszcz/www/pyjru/pyJRU/templates;
+        }
+}
