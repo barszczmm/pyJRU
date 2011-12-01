@@ -3,5 +3,4 @@
 	<home>/home/barszcz/www/pyjru/pyjru_venv</home>
 	<pythonpath>/home/barszcz/www/pyjru/pyJRU/pyjru</pythonpath>
 	<module>server</module>
-	<env>PYJRU_PATH=/home/barszcz/www/pyjru/pyJRU/pyjru</env>
 </uwsgi>

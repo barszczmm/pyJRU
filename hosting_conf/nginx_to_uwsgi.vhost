@@ -17,6 +17,5 @@ server {
         location / {
                 uwsgi_pass pyjru;
                 include uwsgi_params;
-                uwsgi_param PYJRU_PATH /home/barszcz/www/pyjru/pyJRU/pyjru;
         }
 }
