@@ -3,5 +3,5 @@
 	<home>/home/barszcz/www/pyjru/pyjru_venv</home>
 	<pythonpath>/home/barszcz/www/pyjru/pyJRU/pyjru</pythonpath>
 	<module>server</module>
-	<env>TEMPLATES_PATH=/home/barszcz/www/pyjru/pyJRU/pyjru/templates</env>
+	<env>PYJRU_PATH=/home/barszcz/www/pyjru/pyJRU/pyjru</env>
 </uwsgi>

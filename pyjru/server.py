@@ -16,8 +16,10 @@ version = '0.1'
 
 def index(environ, start_response):
     """Main view."""
-    templates_path = environ.get('TEMPLATES_PATH', 'templates')
-    body = Template(open(templates_path + '/index.html').read()).substitute(dict(version=version))
+    pyjru_path = environ.get('PYJRU_PATH', '').lstrip('/')
+    if pyjru_path:
+        pyjru_path += '/'
+    body = Template(open(pyjru_path + 'templates/index.html').read()).substitute(dict(version=version))
     start_response('200 OK', [('Content-Type', 'text/html'), ('Content-length', str(len(body)))])
     return [body]
 
@@ -92,15 +94,18 @@ def static(environ, start_response):
                 block = f.read(BLOCK_SIZE)
 
     file_path = environ.get('PATH_INFO', '').lstrip('/')
+    pyjru_path = environ.get('PYJRU_PATH', '').lstrip('/')
+    if pyjru_path:
+        pyjru_path += '/'
     try:
-        size = os.path.getsize(file_path)
+        size = os.path.getsize(pyjru_path + file_path)
     except Exception as e:
         start_response('404 NOT FOUND', [('Content-Type', 'text/plain')])
         return ['Not Found']
-    mimetype = mimetypes.guess_type(file_path)[0]
+    mimetype = mimetypes.guess_type(pyjru_path + file_path)[0]
 
     start_response('200 OK', [('Content-Type', mimetype), ('Content-length', str(size))])
-    return send_file(file_path, size)
+    return send_file(pyjru_path + file_path, size)
 
 
 def not_found(environ, start_response):
