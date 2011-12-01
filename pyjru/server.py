@@ -91,7 +91,7 @@ def static(environ, start_response):
                 yield block
                 block = f.read(BLOCK_SIZE)
 
-    file_path = environ.get('PATH_INFO', '').lstrip('/') + '/'
+    file_path = '/' + environ.get('PATH_INFO', '').lstrip('/')
     try:
         size = os.path.getsize(PYJRU_PATH + file_path)
     except Exception as e:
