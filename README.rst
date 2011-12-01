@@ -64,8 +64,16 @@ Usage
 
 
 
+Demo
+----
+
+Try it `here <http://pyjru.barszcz.info/>`_.
+
+
+
 Credits
 -------
 **Main Author:** Maciej 'barszcz' Marczewski
     `www.barszcz.info <http://www.barszcz.info>`_
 
+    
